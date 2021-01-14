@@ -1,0 +1,15 @@
+C:\development\github.com\secretdeveloper\Scrapr\Scrapr\bin\Debug\netcoreapp3.1\Scrapr.exe
+C:\development\github.com\secretdeveloper\Scrapr\Scrapr\bin\Debug\netcoreapp3.1\Scrapr.deps.json
+C:\development\github.com\secretdeveloper\Scrapr\Scrapr\bin\Debug\netcoreapp3.1\Scrapr.runtimeconfig.json
+C:\development\github.com\secretdeveloper\Scrapr\Scrapr\bin\Debug\netcoreapp3.1\Scrapr.runtimeconfig.dev.json
+C:\development\github.com\secretdeveloper\Scrapr\Scrapr\bin\Debug\netcoreapp3.1\Scrapr.dll
+C:\development\github.com\secretdeveloper\Scrapr\Scrapr\bin\Debug\netcoreapp3.1\Scrapr.pdb
+C:\development\github.com\secretdeveloper\Scrapr\Scrapr\obj\Debug\netcoreapp3.1\Scrapr.csproj.CoreCompileInputs.cache
+C:\development\github.com\secretdeveloper\Scrapr\Scrapr\obj\Debug\netcoreapp3.1\Scrapr.AssemblyInfoInputs.cache
+C:\development\github.com\secretdeveloper\Scrapr\Scrapr\obj\Debug\netcoreapp3.1\Scrapr.AssemblyInfo.cs
+C:\development\github.com\secretdeveloper\Scrapr\Scrapr\obj\Debug\netcoreapp3.1\Scrapr.dll
+C:\development\github.com\secretdeveloper\Scrapr\Scrapr\obj\Debug\netcoreapp3.1\Scrapr.pdb
+C:\development\github.com\secretdeveloper\Scrapr\Scrapr\obj\Debug\netcoreapp3.1\Scrapr.genruntimeconfig.cache
+C:\development\github.com\secretdeveloper\Scrapr\Scrapr\bin\Debug\netcoreapp3.1\HtmlAgilityPack.dll
+C:\development\github.com\secretdeveloper\Scrapr\Scrapr\obj\Debug\netcoreapp3.1\Scrapr.csproj.CopyComplete
+C:\development\github.com\secretdeveloper\Scrapr\Scrapr\obj\Debug\netcoreapp3.1\Scrapr.csprojAssemblyReference.cache

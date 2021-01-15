@@ -75,11 +75,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\development\\github.com\\secretdeveloper\\Scrapr\\Scrapr\\Scrapr.csproj",
+      "projectUniqueName": "C:\\Development\\github.com\\SecretDeveloper\\Scrapr\\Scrapr\\Scrapr.csproj",
       "projectName": "Scrapr",
-      "projectPath": "C:\\development\\github.com\\secretdeveloper\\Scrapr\\Scrapr\\Scrapr.csproj",
+      "projectPath": "C:\\Development\\github.com\\SecretDeveloper\\Scrapr\\Scrapr\\Scrapr.csproj",
       "packagesPath": "C:\\Users\\ajl08\\.nuget\\packages\\",
-      "outputPath": "C:\\development\\github.com\\secretdeveloper\\Scrapr\\Scrapr\\obj\\",
+      "outputPath": "C:\\Development\\github.com\\SecretDeveloper\\Scrapr\\Scrapr\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -47,11 +47,11 @@ namespace Scrapr
 |{0}
 |[https://azure.microsoft.com{1} {2}]
 |{3}
-|
-|
-|
-|
-", dto.Category, dto.URL, dto.ProductName, dto.Description));
+| class='col-grey-light-bg' |Not yet evaluated (NYE)
+| Contact EA for evaluation and approval before using.
+| class='col-grey-light-bg' |Not in use
+|2021-01-15
+", dto.Category, dto.URL, dto.ProductName, dto.Description).Replace("'", "\""));
             }
 
             return sb.ToString();

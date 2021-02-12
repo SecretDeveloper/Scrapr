@@ -9,6 +9,7 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Transactions;
 
 namespace Scrapr
 {
@@ -39,19 +40,79 @@ namespace Scrapr
             // parse through content and extract what we need
             var azureServiceDTOs = ParseHTML(html);
 
-            // format and return result
-            var sb = new StringBuilder();
-            foreach(var dto in azureServiceDTOs)
-            {
-                sb.Append(string.Format(@"|-
+            var UnevaluatedInProd = new List<string>();
+            UnevaluatedInProd.Add("/en-us/services/active-directory/");            
+            UnevaluatedInProd.Add("/en-us/services/data-factory/");
+            UnevaluatedInProd.Add("/en-us/services/functions/");
+            UnevaluatedInProd.Add("/en-us/services/disks/");
+            UnevaluatedInProd.Add("/en-us/services/virtual-machines/linux-and-open/");
+            UnevaluatedInProd.Add("/en-us/services/virtual-machines/");
+            UnevaluatedInProd.Add("/en-us/services/azure-sql/");
+            UnevaluatedInProd.Add("/en-us/services/service-bus/");
+            UnevaluatedInProd.Add("/en-us/services/storage/data-lake-analytics/");
+            UnevaluatedInProd.Add("/en-us/services/storage/data-lake-storage/");
+            UnevaluatedInProd.Add("/en-us/services/cognitive-services/");
+            UnevaluatedInProd.Add("/en-us/services/notification-hubs/");
+            UnevaluatedInProd.Add("/en-us/services/key-vault/");
+            UnevaluatedInProd.Add("/en-us/services/virtual-machines/data-science-virtual-machines/");
+            UnevaluatedInProd.Add("/en-us/services/devops/");
+            UnevaluatedInProd.Add("/en-us/services/cdn/");            
+
+            var EvaluatedNonProd = new List<string>();
+            EvaluatedNonProd.AddRange(UnevaluatedInProd);
+            EvaluatedNonProd.Add("/en-us/services/cache/");
+
+
+            var defaultTemplate = @"|-
 |{0}
 |[https://azure.microsoft.com{1} {2}]
 |{3}
 | class='col-grey-light-bg' |Not yet evaluated (NYE)
-| Contact EA for evaluation and approval before using.
+| 
 | class='col-grey-light-bg' |Not in use
-|2021-01-15
-", dto.Category, dto.URL, dto.ProductName, dto.Description).Replace("'", "\""));
+|
+";
+
+            var evaluatedPlannedTemplate = @"|-
+|{0}
+|[https://azure.microsoft.com{1} {2}]
+|{3}
+| class='col-blue-dark-bg' |Pending
+| Not yet approved for general use.
+| class='col-purple-bg' |Experimentation
+|2021-01-19
+";
+
+            var unevaluatedProdTemplate = @"|-
+|{0}
+|[https://azure.microsoft.com{1} {2}]
+|{3}
+| class='col-grey-light-bg' |Not yet evaluated (NYE)
+| 
+| class='col-green-bg' |Production
+|2021-01-19
+";
+
+            var uniques = new List<string>();
+            // format and return result
+            var sb = new StringBuilder();
+            foreach(var dto in azureServiceDTOs)
+            {
+                if (uniques.Contains(dto.URL)) continue;  // filter out duplicates that are in multiple categories.
+
+                uniques.Add(dto.URL);
+
+                if (UnevaluatedInProd.Contains(dto.URL))
+                {
+                    sb.Append(string.Format(unevaluatedProdTemplate, dto.Category, dto.URL, dto.ProductName, dto.Description).Replace("'", "\""));
+                } else if(EvaluatedNonProd.Contains(dto.URL))
+                {
+                    sb.Append(string.Format(evaluatedPlannedTemplate, dto.Category, dto.URL, dto.ProductName, dto.Description).Replace("'", "\""));
+                }
+                else
+                {
+                    sb.Append(string.Format(defaultTemplate, dto.Category, dto.URL, dto.ProductName, dto.Description).Replace("'", "\""));
+                }
             }
 
             return sb.ToString();
